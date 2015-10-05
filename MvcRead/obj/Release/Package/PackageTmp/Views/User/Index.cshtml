@@ -1,0 +1,280 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Content/js/viewModel/user.js"></script>
+<h2>>>用户管理</h2>
+<p>
+    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#AddModal" data-bind="click: bindRole">
+        <i class="glyphicon glyphicon-plus"></i>
+        新增
+    </a>
+</p>
+<div class="box-content">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="DataTables_Table_0_length"
+                 class="dataTables_length">
+                <label>
+                    <select size="1" name="DataTables_Table_0_length" data-bind="options: SelectData, value: ValueData "
+                            aria-controls="DataTables_Table_0" id="perPageTotle">
+                        @*      <option value="10" selected="selected">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>*@
+                    </select>
+                    每页条数
+                </label>
+            </div>
+        </div>
+        <div class="col-md-6">
+           
+        </div>
+    </div>
+    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+        <thead>
+            <tr>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>真实姓名</th>
+                <th>部门</th>
+                <th>电话</th>
+                <th>所属角色</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody data-bind="template: { name: 'reservationTemplate', foreach: JsonData }">
+        </tbody>
+
+    </table>
+    <div id="example"></div>
+    <input id="totalpage" type="hidden" />
+    <script type="text/html" id="reservationTemplate">
+        <tr>
+            <td class="center hidden"><span data-bind="text: UserID" ></span></td>
+            <td class="center hidden"><span data-bind="text: RoleID" ></span></td>
+            <td class="center"><span data-bind="text: UserName" ></span></td>
+            <td class="center"><span data-bind="text: Password"></span></td>
+            <td class="center"><span data-bind="text: RealName"></span></td>
+            <td class="center"><span data-bind="text: Depart"></span></td>
+            <td class="center"><span data-bind="text: Phone"></span></td>
+            <td class="center"><span data-bind="text: RoleName"></span></td>
+            <td class="center"><a data-bind="click: function (data) { $root.clickEditt(data, UserID) }" class="btn btn-warning" href="#" data-toggle="modal" data-target="#EditModal">
+                                   <i class="glyphicon glyphicon-user"></i>
+                                   编辑
+                               </a>
+                &nbsp;&nbsp;<a class="btn btn-danger" href="#" data-bind="click: function (data) { $root.clickDelect(data, UserID) }">
+                                <i class="glyphicon glyphicon-tower"></i>
+                                删除
+                            </a>
+
+            </td>
+        </tr>
+
+    </script>
+</div>
+<!--增加模态框（Modal） -->
+<div class="modal fade" id="AddModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title"><i class="glyphicon glyphicon-plus"></i>新增用户
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form"  method="POST" data-bind="submit: submitdata" >
+                    <div id="myAlert" class="alert alert-warning">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>错误！</strong>前后密码不匹配，请重新输入。
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"    name="UserName" required="" data-bind="value: editData.UserName"
+                                   placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control"   name="Password" id="Password" required="" data-bind="value: editData.Password"
+                                   placeholder="请输入密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">重复密码</label> 
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control"  id="rePassword" required="" 
+                                   placeholder="请输入重复密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">真实名字</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="RealName"   data-bind="value: editData.RealName"
+                                   placeholder="请输入真实名字">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">部门</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" data-bind="options: availableDepartment, optionsText: 'DepartmentName', optionsValue: 'DepartmentName', value: editData.Depart"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">电话</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"   name="Phone"  data-bind="value: editData.Phone"
+                                   placeholder="请输入电话">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">所属角色</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="RoleID"  data-bind="options: availableRole, optionsText: 'RoleName', optionsValue: 'RoleID', value: editData.RoleID"></select>
+                            @*<input type="text" class="form-control"  data-bind="value: formRole.Description"
+                                placeholder="请输入描述">*@
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-primary">
+                                保存
+                            </button>
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">
+                                关闭
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                    关闭
+                </button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
+<!--编辑模态框（Modal） -->
+<div class="modal fade" id="EditModal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                    data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title"><i class="glyphicon glyphicon-wrench"></i>编辑用户
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" action="/api/sys/User/EditUser" method="POST" data-bind="submit: submitdata1" >
+                    <div id="myAlert1" class="alert alert-warning">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>错误！</strong>前后密码不匹配，请重新输入。
+                    </div>
+                    <div class="form-group hidden">
+                        <label for="lastname" class="col-sm-2 control-label">用户ID</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"    name="UserID" data-bind="value: editData.UserID"
+                                   placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"    name="UserName" data-bind="value: editData.UserName" required="" disabled=""
+                                   placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control"   name="Password" id="Password1" data-bind="value: editData.Password" required=""
+                                   placeholder="请输入密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">重复密码</label> 
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control"  id="rePassword1"  required="" data-bind="value: editData.Password"
+                                   placeholder="请输入重复密码">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">真实名字</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="RealName"   data-bind="value: editData.RealName"
+                                   placeholder="请输入真实名字">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">部门</label>
+                        <div class="col-sm-10">
+                             <select class="form-control" data-bind="options: availableDepartment, optionsText: 'DepartmentName', optionsValue: 'DepartmentName', value: editData.Depart"></select>
+                            @*<input type="text" class="form-control"   name="Depart"  data-bind="value: editData.Depart"
+                                   placeholder="请输入部门">*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">电话</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"   name="Phone"  data-bind="value: editData.Phone" 
+                                   placeholder="请输入电话">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">所属角色</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="RoleID"  data-bind="options: availableRole, optionsText: 'RoleName', optionsValue: 'RoleID', value: editData.RoleID"></select>
+                            @*<input type="text" class="form-control"  data-bind="value: formRole.Description"
+                                placeholder="请输入描述">*@
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-primary">
+                                保存
+                            </button>
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">
+                                关闭
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-default"
+                    data-dismiss="modal">
+                    关闭
+                </button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
+

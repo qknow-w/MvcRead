@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Look";
+}
+
+<h2></h2>
+<div style="width: 1000px;margin: 100px auto;text-align: center;font-size: 24px;border: 1px red solid">
+    <div>编号:<span style="color:red" id="code"></span></div><div>审核码:<span style="color:red" id="gene"></span></div>
+    <div style="margin-top: 20px;text-decoration: none" ><a href="#" onclick="window.print(); ">打印</a> </div>
+    
+</div>
+<script >
+    $(function() {
+        $.ajax({
+            url: "/api/sys/DataApi/GetById/" + '@ViewBag.dataid',
+            type: "get",
+            data: ko.toJS(self.formDataa),
+            success: function (result) {
+               // console.log(result[0].DataSeq);
+                $("#code").text(result[0].DataSeq);
+                $("#gene").text(result[0].GenerateCode);
+                // location.reload();
+            }
+        });
+    })
+</script>

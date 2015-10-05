@@ -1,0 +1,86 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>首页</title>
+
+    <link href="~/Content/bootstrap-3.2.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Home.css" rel="stylesheet" />
+    @* <script src="~/Content/bootstrap-3.2.0/dist/js/bootstrap.min.js"></script>    *@
+    <script src="~/Content/pdfobject.js"></script>
+    <script src="~/Content/Knockoutv3.2.0.js"></script>
+    <script src="~/Content/jquery.js"></script>
+    <script src="~/Content/js/viewModel/HomeIndex.js"></script>
+    <link rel="shortcut icon" href="~/Content/charisma/img/favicon.ico">
+</head>
+<body>
+    <div class="header">
+        <img src="~/Content/Images/logo.png" />
+    </div>
+    @*<div id="pdf1" hidden="">
+        对不起,您还没有安装PDF阅读器软件呢,为了方便预览PDF文档,请选择安装！
+     <a href="PDF/19-P1012728-064_ZHCN-Draft.pdf">PDF/19-P1012728-064_ZHCN-Draft.pdf</a>
+    </div>*@
+
+    <div class="container-fluid">
+        <form class="form-horizontal" role="form" data-bind="submit: submitdata">
+            <div class="col-md-12">&nbsp; </div>
+            <div class="col-md-4">
+                <span>编号：</span><input type="text" required="" id="numberr" />
+            </div>
+            <div class="col-md-4">
+                <span>审核码：</span><input type="text" required="" id="genree" />
+
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-success" style="height: 26px">提交</button>
+            </div>
+        </form>
+        <table class="table table-bordered table-hover table-striped">
+            <caption>
+                <h3></h3>
+            </caption>
+            <thead>
+                <tr class="success">
+                    <th>文件编号</th>
+                    <th>文件名称</th>
+                    <th>文件大小</th>
+                    <th>录入时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody data-bind="template: { name: 'reservationTemplate', foreach: JsonData }">
+            </tbody>
+        </table>
+        <script type="text/html" id="reservationTemplate">
+            <tr>
+                <td class="center hidden"><span data-bind="text: DataURL"></span></td>
+                <td class="center"><span data-bind="text: DataSeq"></span></td>
+                <td class="center"><span data-bind="text: DataName"></span></td>
+                <td class="center"><span data-bind="text: DataSize"></span></td>
+                <td class="center"><span data-bind="text: CreateDate"></span></td>
+                <td class="center"><a data-bind="click: function (data) { $root.Check(data, DataSeq) }" class="btn btn-warning" href="#" data-toggle="modal" data-target="#EditModal">
+                    <i class="glyphicon glyphicon-folder-open"></i>
+                    查看
+                </a>
+
+
+                </td>
+            </tr>
+
+        </script>
+    </div>
+    <div class="alert alert-warning " data-bind="visible: visi">
+        对不起,您使用的浏览器是IE系列,请安装PDF阅读器软件或更换浏览器,如Chrome,Firebox...,如需安装PDF阅读器软件,请选择点击安装！
+     <a href="http://ardownload.adobe.com/pub/adobe/reader/win/9.x/9.3/chs/AdbeRdr930_zh_CN.exe">安装</a>
+    </div>
+    <footer>
+    @*    <a href="/Admin/Login" class="btn btn-primary">后台登陆</a>*@
+    </footer>
+</body>
+</html>

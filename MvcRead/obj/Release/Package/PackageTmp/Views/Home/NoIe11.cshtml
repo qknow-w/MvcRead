@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>PDF</title>
+        <script src="~/Content/jquery.js"></script>
+        <script src="~/Content/pdfobject.js"></script>
+    </head>
+    <script type="text/javascript">
+        $(function() {
+            // var myPDF = new PDFObject({ url: "/File/Pdf/helloworld.pdf" }).embed();
+            var myPDF = new PDFObject({ url: '@ViewBag.URL'+'.pdf' ,pdfOpenParams:{
+                navpanes: 1,
+            }}).embed();
+        });
+    </script>
+    <body>       
+    </body>
+</html>

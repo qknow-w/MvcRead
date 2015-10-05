@@ -1,0 +1,151 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="~/Content/charisma/css/charisma-app.css" rel="stylesheet" />
+    <link href="~/Content/charisma/css/bootstrap-cerulean.min.css" rel="stylesheet" />
+    <link href='~/Content/charisma/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='~/Content/charisma/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <script src="~/Content/md5.js"></script>
+    <!-- jQuery -->
+    <script src="~/Content/charisma/bower_components/jquery/jquery.min.js"></script>
+     <link href="~/Content/bootstrap-3.2.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Content/charisma/img/favicon.ico">
+    <script src="~/Content/Knockoutv3.2.0.js"></script>
+    <script type="text/javascript">
+        var ViewModel = function () {
+            var self = this;
+            self.form = {
+                remember: ko.observable(false),
+            };
+            self.loginClick = function() {
+
+
+            };
+            self.confirmClick = function () {
+                setCookie("userName", hex_md5("123"), 24, "/");
+                setCookie("userPassword", hex_md5("123"), 24, "/");
+                window.location.href = '/Admin/Index';
+                
+            }
+        }
+        $(function () {
+            ko.applyBindings(new ViewModel());
+        });
+        //获取cookie信息
+        function getRememberInfo() {
+            // alert("---获取cookie信息---");
+
+            try {
+                var userName = "";
+                var userPassword = "";
+                userName = getCookieValue("userName");
+                userPassword = getCookieValue("userPassword");
+                document.getElementById("userName").value = userName;
+                document.getElementById("userPassword").value = userPassword;
+            } catch (err) {
+                alert("NO RMB PASSWORD!");
+            }
+        }
+
+        //新建cookie。
+        //hours为空字符串时,cookie的生存期至浏览器会话结束。hours为数字0时,建立的是一个失效的cookie,这个cookie会覆盖已经建立过的同名、同path的cookie（如果这个cookie存在）。
+        function setCookie(name, value, hours, path) {
+            var name = escape(name);
+            var value = escape(value);
+            var expires = new Date();
+            expires.setTime(expires.getTime() + hours * 3600000);
+            path = path == "" ? "" : ";path=" + path;
+            _expires = (typeof hours) == "string" ? "" : ";expires=" + expires.toUTCString();
+            document.cookie = name + "=" + value + _expires + path;
+        }
+        //获取cookie值
+        function getCookieValue(name) {
+            var name = escape(name);
+            //读cookie属性，这将返回文档的所有cookie
+            var allcookies = document.cookie;
+            //查找名为name的cookie的开始位置
+            name += "=";
+            var pos = allcookies.indexOf(name);
+            //如果找到了具有该名字的cookie，那么提取并使用它的值
+            if (pos != -1) {                                             //如果pos值为-1则说明搜索"version="失败
+                var start = pos + name.length;                  //cookie值开始的位置
+                var end = allcookies.indexOf(";", start);        //从cookie值开始的位置起搜索第一个";"的位置,即cookie值结尾的位置
+                if (end == -1) end = allcookies.length;        //如果end值为-1说明cookie列表里只有一个cookie
+                var value = allcookies.substring(start, end);  //提取cookie的值
+                return unescape(value);                           //对它解码
+            }
+            else return "";                                             //搜索失败，返回空字符串
+        }
+        //删除cookie
+        function deleteCookie(name, path) {
+            var name = escape(name);
+            var expires = new Date(0);
+            path = path == "" ? "" : ";path=" + path;
+            document.cookie = name + "=" + ";expires=" + expires.toUTCString() + path;
+        }
+    </script>
+</head>
+<body>
+    <div class="ch-container">
+        <div class="row">
+
+            <div class="row">
+                <div class="col-md-12 center login-header">
+                    <h2>管理后台</h2>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+
+            <div class="row">
+                <div class="well col-md-5 center login-box">
+                    <div class="alert alert-info">
+                        请输入用户名和密码.
+           
+                    </div>
+                    <form class="form-horizontal" data-bid="submit:loginClick">
+                        <fieldset>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+                                <input type="text" class="form-control" placeholder="用户名">
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+                                <input type="password" class="form-control" placeholder="密码">
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="input-prepend">
+                                <label class="remember" for="remember">
+                                    <input type="checkbox" id="remember"  data-bind="checked:form.remember">
+                                    记住密码</label>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <p class="center col-md-5">
+                                @*  <button type="submit" class="btn btn-primary" >登陆</button>*@
+                                <button class="btn btn-primary" data-bind="click:confirmClick" >登陆</button>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+        </div>
+        <!--/fluid-row-->
+
+    </div>
+    <!--/.fluid-container-->
+</body>
+    </html>

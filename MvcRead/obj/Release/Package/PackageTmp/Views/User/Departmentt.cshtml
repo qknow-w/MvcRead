@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Departmentt";
+}
+<script src="~/Content/js/core/utils.js"></script>
+<script src="~/Content/bootstrap-treeview/src/js/bootstrap-treeview.js"></script>
+<script src="~/Content/js/viewModel/departmett.js"></script>
+<h2>>>部门管理</h2>
+<p>
+    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#AddModal" data-bind="click: bindDeparts">
+        <i class="glyphicon glyphicon-plus"></i>
+        新增
+    </a>
+    <a class="btn btn-danger" href="#" onclick="clickDelect()">
+        <i class="glyphicon glyphicon-tower"></i>
+        删除
+    </a>
+</p>
+<div id="tree"></div>
+<!--增加模态框（Modal） -->
+<div class="modal fade" id="AddModal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                    data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title"><i class="glyphicon glyphicon-plus"></i>新增部门
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" method="POST" data-bind="submit: submitdata">
+                    <div class="form-group">
+                        <label for="lastname" class="col-sm-2 control-label">部门名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="DepartmentName" data-bind="value: AddData.DepartmentName" required=""
+                                placeholder="请输入部门名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">所属部门</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="RoleID" data-bind="options: availableDepart, optionsText: 'DepartmentName', optionsValue: 'DepartmentID', value: AddData.ParentID"></select>
+                            @*<input type="text" class="form-control"  data-bind="value: formRole.Description"
+                                placeholder="请输入描述">*@
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-primary">
+                                保存
+                            </button>
+                            <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                                关闭
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-default"
+                    data-dismiss="modal">
+                    关闭
+                </button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>

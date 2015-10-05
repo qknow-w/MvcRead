@@ -1,0 +1,1032 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{96D99BCF-527D-48EF-A072-11AD2334CB61}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcRead</RootNamespace>
+    <AssemblyName>MvcRead</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RazorEngine">
+      <HintPath>..\packages\RazorJS.0.4.3\lib\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorJS">
+      <HintPath>..\packages\RazorJS.0.4.3\lib\RazorJS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Sys\Controllers\CaseReasonApiController.cs" />
+    <Compile Include="Areas\Sys\Controllers\DataApiController.cs" />
+    <Compile Include="Areas\Sys\Controllers\DepartmentApiController.cs" />
+    <Compile Include="Areas\Sys\Controllers\LogApiController.cs" />
+    <Compile Include="Areas\Sys\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Sys\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Sys\Controllers\UserController.cs" />
+    <Compile Include="Areas\Sys\Models\AnyModel.cs" />
+    <Compile Include="Areas\Sys\Models\TreeNode.cs" />
+    <Compile Include="Areas\Sys\SysAreaRegistration.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controls\MenuControls.cs" />
+    <Compile Include="Factoty\CaseReasonFactory.cs" />
+    <Compile Include="Factoty\DataFactoty.cs" />
+    <Compile Include="Factoty\DepartmentFactory.cs" />
+    <Compile Include="Factoty\LogFactory.cs" />
+    <Compile Include="Factoty\MenuFacoty.cs" />
+    <Compile Include="Factoty\RoleFactory.cs" />
+    <Compile Include="Factoty\UserFactoty.cs" />
+    <Compile Include="Filter\AuthorizeExAttribute.cs" />
+    <Compile Include="Filter\ExceptionAttribute.cs" />
+    <Compile Include="Filter\LogFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\MyHttphandler.cs" />
+    <Compile Include="IFactory\ICaseReasonFactory.cs" />
+    <Compile Include="IFactory\IDataFactoty.cs" />
+    <Compile Include="IFactory\IDepartmentFactory.cs" />
+    <Compile Include="IFactory\ILogFactory.cs" />
+    <Compile Include="IFactory\IMenuFactory.cs" />
+    <Compile Include="IFactory\IRoleFactory.cs" />
+    <Compile Include="IFactory\IUserFactoty.cs" />
+    <Compile Include="IService\ICaseReasonService.cs" />
+    <Compile Include="IService\IDataService.cs" />
+    <Compile Include="IService\IDepartmentService.cs" />
+    <Compile Include="IService\ILogService.cs" />
+    <Compile Include="IService\IMenuService.cs" />
+    <Compile Include="IService\IRoleService.cs" />
+    <Compile Include="IService\IUserService.cs" />
+    <Compile Include="Models\Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PetaPoco.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CaseReasonService.cs" />
+    <Compile Include="Service\DataService.cs" />
+    <Compile Include="Service\DepartmentService.cs" />
+    <Compile Include="Service\LogService.cs" />
+    <Compile Include="Service\MenuService.cs" />
+    <Compile Include="Service\RoleService.cs" />
+    <Compile Include="Service\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-3.2.0\.gitattributes" />
+    <Content Include="Content\bootstrap-3.2.0\.gitignore" />
+    <Content Include="Content\bootstrap-3.2.0\dist\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-3.2.0\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-3.2.0\dist\css\bootstrap.css" />
+    <Content Include="Content\bootstrap-3.2.0\dist\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap-3.2.0\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap-3.2.0\dist\js\bootstrap.js" />
+    <Content Include="Content\bootstrap-3.2.0\dist\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-paginator.min.js" />
+    <Content Include="Content\bootstrap-paginator\.gitignore" />
+    <Content Include="Content\bootstrap-paginator\build\bootstrap-paginator.min.js" />
+    <Content Include="Content\bootstrap-paginator\css\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-paginator\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap-paginator\css\bootstrap.css" />
+    <Content Include="Content\bootstrap-paginator\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap-paginator\css\bootstrapv3.css" />
+    <Content Include="Content\bootstrap-paginator\css\bootstrapv3.min.css" />
+    <Content Include="Content\bootstrap-paginator\css\documentation.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\arta.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\ascetic.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\brown_paper.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\brown_papersq.png" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\dark.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\default.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\far.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\github.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\googlecode.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\idea.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\ir_black.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\magula.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\monokai.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\pojoaque.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\pojoaque.jpg" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\rainbow.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\school_book.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\school_book.png" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\solarized_dark.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\solarized_light.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\sunburst.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\tomorrow-night-blue.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\tomorrow-night-bright.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\tomorrow-night-eighties.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\tomorrow-night.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\tomorrow.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\vs.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\xcode.css" />
+    <Content Include="Content\bootstrap-paginator\css\highlight.js\zenburn.css" />
+    <Content Include="Content\bootstrap-paginator\css\qunit-1.11.0.css" />
+    <Content Include="Content\bootstrap-paginator\documentation\index.html" />
+    <Content Include="Content\bootstrap-paginator\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap-paginator\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\bootstrap-paginator\img\glyphicons-halflings.png" />
+    <Content Include="Content\bootstrap-paginator\img\illustration.png" />
+    <Content Include="Content\bootstrap-paginator\lib\bootstrap.js" />
+    <Content Include="Content\bootstrap-paginator\lib\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-paginator\lib\bootstrapv3.js" />
+    <Content Include="Content\bootstrap-paginator\lib\highlight.pack.js" />
+    <Content Include="Content\bootstrap-paginator\lib\jquery-1.9.1.min.js" />
+    <Content Include="Content\bootstrap-paginator\lib\jquery.history.js" />
+    <Content Include="Content\bootstrap-paginator\lib\qunit-1.11.0.js" />
+    <Content Include="Content\bootstrap-paginator\src\bootstrap-paginator.js" />
+    <Content Include="Content\bootstrap-paginator\test\test.html" />
+    <Content Include="Content\bootstrap-paginator\test\testv3.html" />
+    <Content Include="Content\bootstrap-treeview\dist\bootstrap-treeview.min.css" />
+    <Content Include="Content\bootstrap-treeview\dist\bootstrap-treeview.min.js" />
+    <Content Include="Content\bootstrap-treeview\public\css\bootstrap-treeview.css" />
+    <Content Include="Content\bootstrap-treeview\public\example-dom.html" />
+    <Content Include="Content\bootstrap-treeview\public\index.html" />
+    <Content Include="Content\bootstrap-treeview\public\js\bootstrap-treeview.js" />
+    <Content Include="Content\bootstrap-treeview\screenshot\default.PNG" />
+    <Content Include="Content\bootstrap-treeview\src\css\bootstrap-treeview.css" />
+    <Content Include="Content\bootstrap-treeview\src\js\bootstrap-treeview.js" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\Home.css" />
+    <Content Include="Content\css\index.css" />
+    <Content Include="Content\css\pagination.css" />
+    <Content Include="Content\datepicker\css\datepicker.css" />
+    <Content Include="Content\datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\Images\1232.gif" />
+    <Content Include="Content\Images\321.gif" />
+    <Content Include="Content\Images\bg_01.png" />
+    <Content Include="Content\Images\bg_pic.png" />
+    <Content Include="Content\Images\logo.gif" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\buttom.gif" />
+    <Content Include="Content\Images\logo10.gif" />
+    <Content Include="Content\Images\logo333.png" />
+    <Content Include="Content\Images\logo55.png" />
+    <Content Include="Content\Images\top.gif" />
+    <Content Include="Content\Images\logo5.gif" />
+    <Content Include="Content\Images\buttom01.gif" />
+    <Content Include="Content\Images\top_01.gif" />
+    <Content Include="Content\Images\04_01.gif" />
+    <Content Include="Content\Images\04_02.gif" />
+    <Content Include="Content\Images\04_03.gif" />
+    <Content Include="Content\Images\04_04.gif" />
+    <Content Include="Content\Images\04_05.gif" />
+    <Content Include="Content\jquery-1.11.1.min.js" />
+    <Content Include="Content\jquery.js" />
+    <Content Include="Content\bootstrap-3.2.0\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap-3.2.0\Gruntfile.js" />
+    <Content Include="Content\bootstrap-3.2.0\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="Content\bootstrap-3.2.0\grunt\bs-lessdoc-parser.js" />
+    <Content Include="Content\bootstrap-3.2.0\grunt\bs-raw-files-generator.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\affix.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\alert.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\button.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\carousel.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\collapse.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\dropdown.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\modal.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\popover.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\scrollspy.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tab.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\index.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\affix.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\alert.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\button.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\carousel.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\collapse.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\dropdown.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\modal.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\phantom.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\popover.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\scrollspy.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\tab.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\tooltip.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\vendor\jquery.min.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\vendor\qunit.css" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\vendor\qunit.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\affix.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\alert.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\button.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\carousel.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\collapse.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\dropdown.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\modal.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\popover.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\scrollspy.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\tab.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\visual\tooltip.html" />
+    <Content Include="Content\bootstrap-3.2.0\js\tooltip.js" />
+    <Content Include="Content\bootstrap-3.2.0\js\transition.js" />
+    <Content Include="Content\bootstrap-3.2.0\test-infra\requirements.txt" />
+    <Content Include="Content\js\core\common.js" />
+    <Content Include="Content\js\core\datagrid-scrollview.js" />
+    <Content Include="Content\js\core\file.js" />
+    <Content Include="Content\js\core\jquery.easyui.fix.js" />
+    <Content Include="Content\js\core\json2.js" />
+    <Content Include="Content\js\core\json2.min.js" />
+    <Content Include="Content\js\core\knockout-2.2.1.debug.js" />
+    <Content Include="Content\js\core\knockout-2.2.1.js" />
+    <Content Include="Content\js\core\knockout.bindings.js" />
+    <Content Include="Content\js\core\knockout.mapping-2.4.1.debug.js" />
+    <Content Include="Content\js\core\knockout.mapping-2.4.1.js" />
+    <Content Include="Content\js\core\utils.js" />
+    <Content Include="Content\js\viewModel\addData.js" />
+    <Content Include="Content\js\viewModel\apply.js" />
+    <Content Include="Content\js\viewModel\common.js" />
+    <Content Include="Content\js\viewModel\data.js" />
+    <Content Include="Content\js\viewModel\department.js" />
+    <Content Include="Content\js\viewModel\departmett.js" />
+    <Content Include="Content\js\viewModel\HomeIndex.js" />
+    <Content Include="Content\js\viewModel\index.js" />
+    <Content Include="Content\js\viewModel\log.js" />
+    <Content Include="Content\js\viewModel\menu.js" />
+    <Content Include="Content\js\viewModel\role.js" />
+    <Content Include="Content\js\viewModel\user.js" />
+    <Content Include="Content\KnockoutMappingpluginv2.4.1.js" />
+    <Content Include="Content\Knockoutv3.2.0.js" />
+    <Content Include="Content\laydate-master\laydate.dev.js" />
+    <Content Include="Content\laydate-master\laydate.js" />
+    <Content Include="Content\laydate-master\need\laydate.css" />
+    <Content Include="Content\laydate-master\skins\dahong\icon.png" />
+    <Content Include="Content\laydate-master\skins\dahong\laydate.css" />
+    <Content Include="Content\laydate-master\skins\danlan\icon.png" />
+    <Content Include="Content\laydate-master\skins\danlan\laydate.css" />
+    <Content Include="Content\laydate-master\skins\default\icon.png" />
+    <Content Include="Content\laydate-master\skins\default\laydate.css" />
+    <Content Include="Content\laydate-master\skins\molv\icon.png" />
+    <Content Include="Content\laydate-master\skins\molv\laydate.css" />
+    <Content Include="Content\laydate-master\skins\qianhuang\icon.png" />
+    <Content Include="Content\laydate-master\skins\qianhuang\laydate.css" />
+    <Content Include="Content\laydate-master\skins\yahui\icon.png" />
+    <Content Include="Content\laydate-master\skins\yahui\laydate.css" />
+    <Content Include="Content\laydate-master\skins\yalan\icon.png" />
+    <Content Include="Content\laydate-master\skins\yalan\laydate.css" />
+    <Content Include="Content\laydate-master\test\demo1.html" />
+    <Content Include="Content\laydate-master\test\demo2.html" />
+    <Content Include="Content\laydate-master\test\demo2.js" />
+    <Content Include="Content\layer\extend\layer.ext.js" />
+    <Content Include="Content\layer\layer.min.js" />
+    <Content Include="Content\layer\skin\default\icon_ext.png" />
+    <Content Include="Content\layer\skin\default\textbg.png" />
+    <Content Include="Content\layer\skin\default\xubox_ico0.png" />
+    <Content Include="Content\layer\skin\default\xubox_loading0.gif" />
+    <Content Include="Content\layer\skin\default\xubox_loading1.gif" />
+    <Content Include="Content\layer\skin\default\xubox_loading2.gif" />
+    <Content Include="Content\layer\skin\default\xubox_loading3.gif" />
+    <Content Include="Content\layer\skin\default\xubox_title0.png" />
+    <Content Include="Content\layer\skin\layer.css" />
+    <Content Include="Content\layer\skin\layer.ext.css" />
+    <Content Include="Content\md5.js" />
+    <Content Include="Content\pdf.js\external\.gitignore" />
+    <Content Include="Content\pdf.js\external\bcmaps\.gitattributes" />
+    <Content Include="Content\pdf.js\external\builder\builder.js" />
+    <Content Include="Content\pdf.js\external\cmapscompress\compress.js" />
+    <Content Include="Content\pdf.js\external\cmapscompress\optimize.js" />
+    <Content Include="Content\pdf.js\external\cmapscompress\parse.js" />
+    <Content Include="Content\pdf.js\external\crlfchecker\crlfchecker.js" />
+    <Content Include="Content\pdf.js\external\crlfchecker\normtext.js" />
+    <Content Include="Content\pdf.js\external\importL10n\locales.js" />
+    <Content Include="Content\pdf.js\external\jasmine\jasmine-html.js" />
+    <Content Include="Content\pdf.js\external\jasmine\jasmine.css" />
+    <Content Include="Content\pdf.js\external\jasmine\jasmine.js" />
+    <Content Include="Content\pdf.js\external\jasmine\jasmine_favicon.png" />
+    <Content Include="Content\pdf.js\external\shelljs\global.js" />
+    <Content Include="Content\pdf.js\external\shelljs\make.js" />
+    <Content Include="Content\pdf.js\external\shelljs\shell.js" />
+    <Content Include="Content\pdf.js\external\webL10n\l10n.js" />
+    <Content Include="Content\pdf.js\src\core\annotation.js" />
+    <Content Include="Content\pdf.js\src\core\arithmetic_decoder.js" />
+    <Content Include="Content\pdf.js\src\core\bidi.js" />
+    <Content Include="Content\pdf.js\src\core\charsets.js" />
+    <Content Include="Content\pdf.js\src\core\chunked_stream.js" />
+    <Content Include="Content\pdf.js\src\core\cmap.js" />
+    <Content Include="Content\pdf.js\src\core\colorspace.js" />
+    <Content Include="Content\pdf.js\src\core\core.js" />
+    <Content Include="Content\pdf.js\src\core\crypto.js" />
+    <Content Include="Content\pdf.js\src\core\evaluator.js" />
+    <Content Include="Content\pdf.js\src\core\fonts.js" />
+    <Content Include="Content\pdf.js\src\core\font_renderer.js" />
+    <Content Include="Content\pdf.js\src\core\function.js" />
+    <Content Include="Content\pdf.js\src\core\glyphlist.js" />
+    <Content Include="Content\pdf.js\src\core\image.js" />
+    <Content Include="Content\pdf.js\src\core\jbig2.js" />
+    <Content Include="Content\pdf.js\src\core\jpg.js" />
+    <Content Include="Content\pdf.js\src\core\jpx.js" />
+    <Content Include="Content\pdf.js\src\core\metrics.js" />
+    <Content Include="Content\pdf.js\src\core\murmurhash3.js" />
+    <Content Include="Content\pdf.js\src\core\network.js" />
+    <Content Include="Content\pdf.js\src\core\obj.js" />
+    <Content Include="Content\pdf.js\src\core\parser.js" />
+    <Content Include="Content\pdf.js\src\core\pattern.js" />
+    <Content Include="Content\pdf.js\src\core\pdf_manager.js" />
+    <Content Include="Content\pdf.js\src\core\ps_parser.js" />
+    <Content Include="Content\pdf.js\src\core\stream.js" />
+    <Content Include="Content\pdf.js\src\core\worker.js" />
+    <Content Include="Content\pdf.js\src\display\annotation_helper.js" />
+    <Content Include="Content\pdf.js\src\display\api.js" />
+    <Content Include="Content\pdf.js\src\display\canvas.js" />
+    <Content Include="Content\pdf.js\src\display\font_loader.js" />
+    <Content Include="Content\pdf.js\src\display\metadata.js" />
+    <Content Include="Content\pdf.js\src\display\pattern_helper.js" />
+    <Content Include="Content\pdf.js\src\display\svg.js" />
+    <Content Include="Content\pdf.js\src\display\webgl.js" />
+    <Content Include="Content\pdf.js\src\doc_helper.js" />
+    <Content Include="Content\pdf.js\src\images\logo.svg" />
+    <Content Include="Content\pdf.js\src\pdf.js" />
+    <Content Include="Content\pdf.js\src\shared\cffStandardStrings.js" />
+    <Content Include="Content\pdf.js\src\shared\fonts_utils.js" />
+    <Content Include="Content\pdf.js\src\shared\util.js" />
+    <Content Include="Content\pdf.js\src\worker_loader.js" />
+    <Content Include="Content\pdf.js\web\.gitignore" />
+    <Content Include="Content\pdf.js\web\chromecom.js" />
+    <Content Include="Content\pdf.js\web\compatibility.js" />
+    <Content Include="Content\pdf.js\web\debugger.js" />
+    <Content Include="Content\pdf.js\web\default_preferences.js" />
+    <Content Include="Content\pdf.js\web\document_attachments_view.js" />
+    <Content Include="Content\pdf.js\web\document_outline_view.js" />
+    <Content Include="Content\pdf.js\web\document_properties.js" />
+    <Content Include="Content\pdf.js\web\download_manager.js" />
+    <Content Include="Content\pdf.js\web\firefoxcom.js" />
+    <Content Include="Content\pdf.js\web\grab_to_pan.js" />
+    <Content Include="Content\pdf.js\web\hand_tool.js" />
+    <Content Include="Content\pdf.js\web\images\annotation-check.svg" />
+    <Content Include="Content\pdf.js\web\images\annotation-comment.svg" />
+    <Content Include="Content\pdf.js\web\images\annotation-help.svg" />
+    <Content Include="Content\pdf.js\web\images\annotation-insert.svg" />
+    <Content Include="Content\pdf.js\web\images\annotation-key.svg" />
+    <Content Include="Content\pdf.js\web\images\annotation-newparagraph.svg" />
+    <Content Include="Content\pdf.js\web\images\annotation-noicon.svg" />
+    <Content Include="Content\pdf.js\web\images\annotation-note.svg" />
+    <Content Include="Content\pdf.js\web\images\annotation-paragraph.svg" />
+    <Content Include="Content\pdf.js\web\images\findbarButton-next%402x.png" />
+    <Content Include="Content\pdf.js\web\images\findbarButton-next-rtl%402x.png" />
+    <Content Include="Content\pdf.js\web\images\findbarButton-next-rtl.png" />
+    <Content Include="Content\pdf.js\web\images\findbarButton-next.png" />
+    <Content Include="Content\pdf.js\web\images\findbarButton-previous%402x.png" />
+    <Content Include="Content\pdf.js\web\images\findbarButton-previous-rtl%402x.png" />
+    <Content Include="Content\pdf.js\web\images\findbarButton-previous-rtl.png" />
+    <Content Include="Content\pdf.js\web\images\findbarButton-previous.png" />
+    <Content Include="Content\pdf.js\web\images\grab.cur" />
+    <Content Include="Content\pdf.js\web\images\grabbing.cur" />
+    <Content Include="Content\pdf.js\web\images\loading-icon.gif" />
+    <Content Include="Content\pdf.js\web\images\loading-small%402x.png" />
+    <Content Include="Content\pdf.js\web\images\loading-small.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-documentProperties%402x.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-documentProperties.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-firstPage%402x.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-firstPage.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-handTool%402x.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-handTool.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-lastPage%402x.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-lastPage.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-rotateCcw%402x.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-rotateCcw.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-rotateCw%402x.png" />
+    <Content Include="Content\pdf.js\web\images\secondaryToolbarButton-rotateCw.png" />
+    <Content Include="Content\pdf.js\web\images\shadow.png" />
+    <Content Include="Content\pdf.js\web\images\texture.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-bookmark%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-bookmark.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-download%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-download.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-menuArrows%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-menuArrows.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-openFile%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-openFile.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-pageDown%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-pageDown-rtl%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-pageDown-rtl.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-pageDown.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-pageUp%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-pageUp-rtl%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-pageUp-rtl.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-pageUp.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-presentationMode%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-presentationMode.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-print%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-print.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-search%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-search.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-secondaryToolbarToggle%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-secondaryToolbarToggle-rtl%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-secondaryToolbarToggle-rtl.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-secondaryToolbarToggle.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-sidebarToggle%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-sidebarToggle-rtl%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-sidebarToggle-rtl.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-sidebarToggle.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-viewAttachments%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-viewAttachments.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-viewOutline%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-viewOutline-rtl%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-viewOutline-rtl.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-viewOutline.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-viewThumbnail%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-viewThumbnail.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-zoomIn%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-zoomIn.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-zoomOut%402x.png" />
+    <Content Include="Content\pdf.js\web\images\toolbarButton-zoomOut.png" />
+    <Content Include="Content\pdf.js\web\interfaces.js" />
+    <Content Include="Content\pdf.js\web\mozPrintCallback_polyfill.js" />
+    <Content Include="Content\pdf.js\web\overlay_manager.js" />
+    <Content Include="Content\pdf.js\web\page_view.js" />
+    <Content Include="Content\pdf.js\web\password_prompt.js" />
+    <Content Include="Content\pdf.js\web\pdf_find_bar.js" />
+    <Content Include="Content\pdf.js\web\pdf_find_controller.js" />
+    <Content Include="Content\pdf.js\web\pdf_history.js" />
+    <Content Include="Content\pdf.js\web\pdf_rendering_queue.js" />
+    <Content Include="Content\pdf.js\web\pdf_viewer.component.js" />
+    <Content Include="Content\pdf.js\web\pdf_viewer.css" />
+    <Content Include="Content\pdf.js\web\pdf_viewer.js" />
+    <Content Include="Content\pdf.js\web\preferences.js" />
+    <Content Include="Content\pdf.js\web\presentation_mode.js" />
+    <Content Include="Content\pdf.js\web\secondary_toolbar.js" />
+    <Content Include="Content\pdf.js\web\text_layer_builder.css" />
+    <Content Include="Content\pdf.js\web\text_layer_builder.js" />
+    <Content Include="Content\pdf.js\web\thumbnail_view.js" />
+    <Content Include="Content\pdf.js\web\ui_utils.js" />
+    <Content Include="Content\pdf.js\web\viewer-snippet-b2g-activity-header.html" />
+    <Content Include="Content\pdf.js\web\viewer-snippet-chrome-extension.html" />
+    <Content Include="Content\pdf.js\web\viewer-snippet-firefox-extension.html" />
+    <Content Include="Content\pdf.js\web\viewer-snippet-minified.html" />
+    <Content Include="Content\pdf.js\web\viewer-snippet-mozPrintCallback-polyfill.html" />
+    <Content Include="Content\pdf.js\web\viewer-snippet.html" />
+    <Content Include="Content\pdf.js\web\viewer.css" />
+    <Content Include="Content\pdf.js\web\viewer.html" />
+    <Content Include="Content\pdf.js\web\viewer.js" />
+    <Content Include="Content\pdf.js\web\view_history.js" />
+    <Content Include="Content\pdfobject.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\JavaScript1.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Sys\Views\Shared\" />
+    <Folder Include="File\Pdfs\" />
+    <Folder Include="File\Pdf\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index22.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-3.2.0\.editorconfig" />
+    <Content Include="Content\bootstrap-3.2.0\.travis.yml" />
+    <Content Include="Content\bootstrap-3.2.0\bower.json" />
+    <Content Include="Content\bootstrap-3.2.0\CNAME" />
+    <Content Include="Content\bootstrap-3.2.0\composer.json" />
+    <Content Include="Content\bootstrap-3.2.0\CONTRIBUTING.md" />
+    <Content Include="Content\bootstrap-3.2.0\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-3.2.0\dist\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-3.2.0\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-3.2.0\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap-3.2.0\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap-3.2.0\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-3.2.0\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap-3.2.0\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap-3.2.0\grunt\.jshintrc" />
+    <Content Include="Content\bootstrap-3.2.0\grunt\sauce_browsers.yml" />
+    <Content Include="Content\bootstrap-3.2.0\js\.jscsrc" />
+    <Content Include="Content\bootstrap-3.2.0\js\.jshintrc" />
+    <Content Include="Content\bootstrap-3.2.0\js\tests\unit\.jshintrc" />
+    <Content Include="Content\bootstrap-3.2.0\less\.csscomb.json" />
+    <Content Include="Content\bootstrap-3.2.0\less\.csslintrc" />
+    <Content Include="Content\bootstrap-3.2.0\less\alerts.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\badges.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\bootstrap.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\breadcrumbs.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\button-groups.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\buttons.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\carousel.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\close.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\code.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\component-animations.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\dropdowns.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\forms.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\glyphicons.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\grid.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\input-groups.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\jumbotron.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\labels.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\list-group.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\media.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\alerts.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\background-variant.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\border-radius.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\buttons.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\center-block.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\clearfix.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\forms.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\gradients.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\grid-framework.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\grid.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\hide-text.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\image.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\labels.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\list-group.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\nav-divider.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\nav-vertical-align.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\opacity.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\pagination.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\panels.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\progress-bar.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\reset-filter.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\resize.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\responsive-visibility.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\size.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\tab-focus.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\table-row.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\text-emphasis.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\text-overflow.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\mixins\vendor-prefixes.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\modals.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\navbar.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\navs.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\normalize.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\pager.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\pagination.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\panels.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\popovers.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\print.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\progress-bars.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\responsive-embed.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\responsive-utilities.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\scaffolding.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\tables.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\theme.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\thumbnails.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\tooltip.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\type.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\utilities.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\variables.less" />
+    <Content Include="Content\bootstrap-3.2.0\less\wells.less" />
+    <Content Include="Content\bootstrap-3.2.0\LICENSE" />
+    <Content Include="Content\bootstrap-3.2.0\package.json" />
+    <Content Include="Content\bootstrap-3.2.0\README.md" />
+    <Content Include="Content\bootstrap-3.2.0\test-infra\npm-shrinkwrap.json" />
+    <Content Include="Content\bootstrap-3.2.0\test-infra\README.md" />
+    <Content Include="Content\bootstrap-3.2.0\test-infra\S3Cachefile.json" />
+    <Content Include="Content\bootstrap-3.2.0\test-infra\s3_cache.py" />
+    <Content Include="Content\bootstrap-3.2.0\test-infra\uncached-npm-install.sh" />
+    <Content Include="Content\bootstrap-3.2.0\_config.yml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Ie.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\NoIe11.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\PDF.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PetaPoco.Core.ttinclude" />
+    <Content Include="Models\PetaPoco.Generator.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Sys\Views\Menu\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Test\NoIe.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Login111.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Apply.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\AddData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Role.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Log.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-paginator\bootstrap-paginator.jquery.json" />
+    <Content Include="Content\bootstrap-paginator\build.sh" />
+    <Content Include="Content\bootstrap-paginator\CHANGELOG" />
+    <Content Include="Content\bootstrap-paginator\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-paginator\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap-paginator\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap-paginator\LICENSE" />
+    <Content Include="Content\bootstrap-paginator\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Test\index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\datepicker\less\datepicker.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SS.Utilities\SS.Utilities.csproj">
+      <Project>{27fb797a-32d2-4ed8-bc99-20d06800c62b}</Project>
+      <Name>SS.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\pdf.js\web\compressed.tracemonkey-pldi-09.pdf" />
+    <Content Include="Content\pdf.js\web\index.html.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\pdf.js\external\bcmaps\78-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\78-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\78-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\78-RKSJ-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\78-RKSJ-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\78-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\78ms-RKSJ-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\78ms-RKSJ-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\83pv-RKSJ-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\90ms-RKSJ-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\90ms-RKSJ-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\90msp-RKSJ-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\90msp-RKSJ-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\90pv-RKSJ-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\90pv-RKSJ-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Add-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Add-RKSJ-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Add-RKSJ-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Add-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-CNS1-0.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-CNS1-1.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-CNS1-2.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-CNS1-3.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-CNS1-4.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-CNS1-5.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-CNS1-6.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-CNS1-UCS2.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-GB1-0.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-GB1-1.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-GB1-2.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-GB1-3.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-GB1-4.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-GB1-5.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-GB1-UCS2.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Japan1-0.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Japan1-1.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Japan1-2.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Japan1-3.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Japan1-4.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Japan1-5.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Japan1-6.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Japan1-UCS2.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Korea1-0.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Korea1-1.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Korea1-2.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Adobe-Korea1-UCS2.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\B5pc-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\B5pc-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\CNS-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\CNS-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\CNS1-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\CNS1-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\CNS2-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\CNS2-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\ETen-B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\ETen-B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\ETenms-B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\ETenms-B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\ETHK-B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\ETHK-B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Ext-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Ext-RKSJ-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Ext-RKSJ-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Ext-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GB-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GB-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GB-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GB-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBK-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBK-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBK2K-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBK2K-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBKp-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBKp-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBpc-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBpc-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBT-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBT-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBT-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBT-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBTpc-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\GBTpc-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Hankaku.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Hiragana.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKdla-B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKdla-B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKdlb-B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKdlb-B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKgccs-B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKgccs-B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKm314-B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKm314-B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKm471-B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKm471-B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKscs-B5-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\HKscs-B5-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Katakana.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSC-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSC-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSC-Johab-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSC-Johab-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSCms-UHC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSCms-UHC-HW-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSCms-UHC-HW-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSCms-UHC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSCpc-EUC-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\KSCpc-EUC-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\LICENSE" />
+    <Content Include="Content\pdf.js\external\bcmaps\NWP-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\NWP-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\RKSJ-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\RKSJ-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\Roman.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniCNS-UCS2-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniCNS-UCS2-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniCNS-UTF16-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniCNS-UTF16-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniCNS-UTF32-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniCNS-UTF32-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniCNS-UTF8-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniCNS-UTF8-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniGB-UCS2-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniGB-UCS2-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniGB-UTF16-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniGB-UTF16-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniGB-UTF32-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniGB-UTF32-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniGB-UTF8-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniGB-UTF8-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UCS2-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UCS2-HW-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UCS2-HW-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UCS2-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UTF16-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UTF16-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UTF32-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UTF32-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UTF8-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS-UTF8-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS2004-UTF16-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS2004-UTF16-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS2004-UTF32-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS2004-UTF32-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS2004-UTF8-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJIS2004-UTF8-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJISPro-UCS2-HW-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJISPro-UCS2-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJISPro-UTF8-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJISX0213-UTF32-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJISX0213-UTF32-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJISX02132004-UTF32-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniJISX02132004-UTF32-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniKS-UCS2-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniKS-UCS2-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniKS-UTF16-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniKS-UTF16-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniKS-UTF32-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniKS-UTF32-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniKS-UTF8-H.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\UniKS-UTF8-V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\V.bcmap" />
+    <Content Include="Content\pdf.js\external\bcmaps\WP-Symbol.bcmap" />
+    <Content Include="Content\pdf.js\external\cmapscompress\README.md" />
+    <Content Include="Content\pdf.js\external\dist\README.md" />
+    <Content Include="Content\pdf.js\external\jasmine\MIT.LICENSE" />
+    <Content Include="Content\pdf.js\external\shelljs\LICENSE" />
+    <Content Include="Content\pdf.js\external\shelljs\package.json" />
+    <Content Include="Content\pdf.js\external\shelljs\README.md" />
+    <Content Include="Content\pdf.js\external\webL10n\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Department.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Departmentt.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\NoIe.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\laydate-master\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Look.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\ReadWebConfig.pubxml" />
+    <None Include="Properties\PublishProfiles\wwwreadconfig.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:45773/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

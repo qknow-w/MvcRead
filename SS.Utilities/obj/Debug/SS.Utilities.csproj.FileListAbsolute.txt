@@ -1,0 +1,14 @@
+G:\正式项目2\MvcRead\SS.Utilities\bin\Debug\SS.Utilities.dll
+G:\正式项目2\MvcRead\SS.Utilities\bin\Debug\SS.Utilities.pdb
+G:\正式项目2\MvcRead\SS.Utilities\obj\Debug\SS.Utilities.dll
+G:\正式项目2\MvcRead\SS.Utilities\obj\Debug\SS.Utilities.pdb
+G:\正式项目2\MvcRead\SS.Utilities\obj\Debug\SS.Utilities.csprojResolveAssemblyReference.cache
+G:\正式项目2\MvcRead\SS.Utilities\bin\Debug\itextsharp.dll
+G:\正式项目2\MvcRead\SS.Utilities\bin\Debug\itextsharp.xml
+F:\wwwroot\MvcRead\SS.Utilities\bin\Debug\SS.Utilities.dll
+F:\wwwroot\MvcRead\SS.Utilities\bin\Debug\SS.Utilities.pdb
+F:\wwwroot\MvcRead\SS.Utilities\bin\Debug\itextsharp.dll
+F:\wwwroot\MvcRead\SS.Utilities\bin\Debug\itextsharp.xml
+F:\wwwroot\MvcRead\SS.Utilities\obj\Debug\SS.Utilities.csprojResolveAssemblyReference.cache
+F:\wwwroot\MvcRead\SS.Utilities\obj\Debug\SS.Utilities.dll
+F:\wwwroot\MvcRead\SS.Utilities\obj\Debug\SS.Utilities.pdb

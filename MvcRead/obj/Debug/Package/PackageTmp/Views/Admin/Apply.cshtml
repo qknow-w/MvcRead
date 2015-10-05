@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Apply";
+}
+<script src="~/Content/js/viewModel/apply.js"></script>
+<h2>>>申请日志</h2>
+<div class="box-content">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="DataTables_Table_0_length"
+                class="dataTables_length">
+                <label>
+                    <select size="1" name="DataTables_Table_0_length" data-bind="options: SelectData, value: ValueData ">
+                        aria-controls="DataTables_Table_0" id="perPageTotle">
+                        @*      <option value="10" selected="selected">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>*@
+                    </select>
+                    每页条数
+
+                </label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="dataTables_filter"
+                id="DataTables_Table_0_filter">
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>文件名称</th>               
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>申请人</th>
+                <th>申请单位</th>
+                 <th>审核码</th>              
+            </tr>
+        </thead>
+        <tbody data-bind="template: { name: 'reservationTemplate', foreach: JsonData }">
+        </tbody>
+    </table>
+    <div id="example"></div>
+    <input id="totalpage" type="hidden" />
+    <script type="text/html" id="reservationTemplate">
+        <tr>
+            <td class="center hidden"><span data-bind="text: ApplyID" onclick="test();"></span></td>
+            <td class="center"><span data-bind="text: DataSeq" onclick="test();"></span></td>
+            <td class="center"><span data-bind="text: DataName"></span></td>
+            <td class="center"><span data-bind="text: StartTime"></span></td>
+            <td class="center"><span data-bind="text: EndTime" onclick="test();"></span></td>
+            <td class="center"><span data-bind="text: ApplyName"></span></td>
+            <td class="center"><span data-bind="text: Depart"></span></td>
+             <td class="center"><span data-bind="text: GenerateCode"></span></td>           
+        </tr>
+
+    </script>
+</div>

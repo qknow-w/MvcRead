@@ -1,0 +1,214 @@
+﻿@model MvcRead.Areas.Sys.Models.AnyModel
+@{
+    ViewBag.Title = "AddData";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<h2>>>添加卷宗</h2>
+<script type="text/javascript">
+    $(function () {
+        $("#CaseReasonIdfirst").change(function () {
+            $.ajax({
+                url: "/api/sys/CaseReasonApi/GetDataByID/" + $("#CaseReasonIdfirst option:selected").val().substring(0, 5),
+                type: "get",
+                async: false,
+                success: function (data) {
+
+                    document.getElementById("CaseReasonId").options.length = 0;
+                    //        $("#CaseReasonId option").length = 0;
+                    $.each(data, function (index, value) {
+
+                        var varItem = new Option(value.CaseReasonName, value.CaseReasonId);
+                        //console.log(varItem);
+                        document.getElementById("CaseReasonId").options.add(varItem);
+
+                        //objSelect.options[objSelect.options.length] = varItem;  
+                        //    //    //    $("#CaseReasonId").options.add
+                        //    //    //});
+                        //    //    //console.log($("#CaseReasonId option").length);
+                        //    //    //for (var i = $("#CaseReasonId option").length - 1; i >= 0; i--) {
+                        //    //    //    $(this).remove(i);
+                        //    //    //}
+                        //    //    console.log($("#CaseReasonId").length);
+
+                    });
+                }
+            });
+        });
+    })
+</script>
+<form class="form-horizontal" role="form" action="/admin/Uploaded" method="POST" enctype = "multipart/form-data" id = "frmID" >
+    <div class="form-group  ">
+        <label class="col-sm-2 control-label">卷宗名称</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="DataName"  required 
+                   placeholder="请输入资料名称">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">犯罪嫌疑人</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="suspect" 
+                   placeholder="请输入犯罪嫌疑人">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">罪名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="CaseReason" required
+                   placeholder="请输入罪名">
+            
+            @*下拉罪名*@
+            @*  @Html.DropDownList("CaseReasonIdfirst",ViewBag.CaseReason as IEnumerable<SelectListItem>,new {@class="form-control",  })
+            @Html.DropDownList("CaseReasonId",ViewBag.CaseReasonn as IEnumerable<SelectListItem>,new {@class="form-control"  })*@
+            
+
+        </div>
+       @* <div class="col-sm-10">
+            <input type="text" class="form-control" name="CaseReasonId" 
+                   placeholder="请输入描述">
+        </div>*@
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">案件来源</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="source" 
+                   placeholder="请输入案件来源">
+        </div>
+    </div>
+     <div class="form-group">
+        <label class="col-sm-2 control-label">总册数</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="totals" onkeyup="value=value.replace(/[^\d]/g,'') " 
+                   placeholder="请输入总册数">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">描述</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="DataDescription" 
+                   placeholder="请输入描述">
+        </div>
+    </div>
+    <label class="col-sm-2 control-label">文件</label>
+    <div class="col-sm-10">
+       
+        <div class="col-sm-10">
+
+            @Html.HiddenFor(i => i.FilesToBeUploaded)
+            <div id="uploaders">
+                <input type="file" id="fileToUpload" name="fileUpload" multiple="multiple" style="float:left;" />
+                <br />
+                <span id="spnFile" style="float: left; color: #FF0000"></span>
+                @Html.ValidationMessage("File")
+                @Html.Hidden("hdnFileUpload")
+            </div>
+            <br />
+            
+            <br />
+            <br />
+            <div class="control-section" style="padding: 0px;">
+                <div id="selectedFiles"></div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">上传</button>
+            <button type="button" class="btn btn-success" onclick="location='/Home/Index'">返回</button>
+        </div>
+    </div>
+</form>
+
+
+<style type="text/css">
+    #selectedFiles img {
+        max-width: 200px;
+        max-height: 200px;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+    input[type='file'] {
+        color: transparent;
+    }
+</style>
+
+<script>
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var files;
+    var storedFiles = [];
+    var upc = 0;
+
+
+
+    $(function () {
+
+        $(":file").attr('title', '  ');
+        var $loading = $('#loadingDiv').hide();
+
+        $("input[id^='fileToUpload']").change(function (e) {
+            doReCreate(e);
+        });
+
+        selDiv = $("#selectedFiles");
+    });
+
+
+    function doReCreate(e) {
+        upc = upc + 1;
+        handleFileSelect(e);
+
+        $("input[id^='fileToUpload']").hide();
+
+        $('<input>').attr({
+            type: 'file',
+            multiple: 'multiple',
+            id: 'fileToUpload' + upc,
+            class: 'fUpload',
+            name: 'fileUpload',
+            style: 'float: left',
+            title: '  ',
+            onchange: "doReCreate(event)"
+
+        }).appendTo('#uploaders');
+    }
+
+
+    function handleFileSelect(e) {
+
+        //selDiv.innerHTML = ""; storedFiles = []; 
+        selDiv = document.querySelector("#selectedFiles");
+
+        if (!e.target.files) return;
+
+        //selDiv.innerHTML = "";
+        files = e.target.files;
+
+        for (var i = 0; i < files.length; i++) {
+            //if (i == 0) { selDiv.innerHTML = ""; storedFiles = []; }
+            var f = files[i];
+            selDiv.innerHTML += "<div>" + f.name + "<a  href='#' onclick='removeAtt(this)'> X </a></div>";
+            storedFiles.push(f.name);
+        }
+        $('#@Html.IdFor(i => i.FilesToBeUploaded)').val(storedFiles);
+    }
+
+    function removeAtt(t) {
+        var serEle = $(t).parent().text().slice(0, -3);
+        var index = storedFiles.indexOf(serEle);
+        if (index !== -1) {
+            storedFiles.splice(index, 1);
+        }
+        $(t).parent().remove();
+
+        $('#@Html.IdFor(i => i.FilesToBeUploaded)').val(storedFiles);
+
+    }
+</script>

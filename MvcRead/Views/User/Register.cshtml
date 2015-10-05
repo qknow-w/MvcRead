@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+
+<script type="text/javascript">
+    $(function() {
+        //alert("1234");
+        //验证用户名是否存在
+        $('#UserName').blur(function () {
+        //    //$('#tipUserName').removeClass('hidden');
+            $.ajax({
+                        url: " /Users/validateUser",
+                        type: "POST",
+                        data: { "userName": $("#UserName").val() },
+                        contentType: "application/x-www-form-urlencoded",
+                        success: function (data) {
+                            if (data == "true") {
+                                $('#tipUserName').removeClass('hidden');
+                            }
+                            if (data == "false") {
+                                $('#tipUserName').addClass('hidden');
+                            }
+                        }   
+                
+            });
+        });
+
+
+        //确定密码是否一致
+        $('#PasswordConfim').blur(function () {
+            if ($("#PasswordConfim").val() != $("#Password").val()) {
+                $('#tipPassword').removeClass('hidden');
+            } else {
+                $('#tipPassword').addClass('hidden');
+            }
+        });
+
+    });
+</script>
+<h2>>>用户注册</h2>
+<form class="form-horizontal" role="form" action="/Users/Register" method="POST">
+
+    <div class="form-group  ">
+        <label class="col-sm-2 control-label">用户名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="UserName" id="UserName"  required=""
+                placeholder="请输入用户名">
+            <p class='alert alert-warning  hidden' id="tipUserName">用户名已存在，请重新输入</p>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="Password" id="Password"  required=""
+                placeholder="请输入密码">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">确认密码</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="PasswordConfim" id="PasswordConfim" required=""
+                   placeholder="请输入重复密码">
+            <p class='alert alert-warning  hidden' id="tipPassword">前后密码不一致，请重新输入</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">部门</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="Department" id="Department"  required=""
+                placeholder="请输入部门">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">身份证</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="IDCard" id="IDCard" required=""
+                placeholder="请输入身份证">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">电话</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="Phone" id="Phone" 
+                placeholder="请输入电话">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="Email" id="Email" 
+                   placeholder="请输入Email">
+        </div>
+    </div>
+     <div class="form-group">
+        <label class="col-sm-2 control-label">用户类型</label>
+         <div class="col-sm-10">
+             <select class="form-control" name="RoleId" >
+                 <option value=1>超级管理员</option>
+                  <option value=2 selected="" >管理员</option>
+             </select>
+             @* <input type="text" class="form-control" name="Email" id="Email"
+                placeholder="请输入Email">*@
+         </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">提交</button>
+            <button type="button" class="btn btn-default" onclick="location='/Home/Index'">返回</button>
+        </div>
+    </div>
+</form>
+

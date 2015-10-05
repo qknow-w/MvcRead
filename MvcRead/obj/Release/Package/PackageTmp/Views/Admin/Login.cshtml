@@ -1,0 +1,170 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/layer/skin/layer.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Content/charisma/img/favicon.ico">   
+    <script src="~/Content/jquery.js"></script>
+    <script src="~/Content/layer/layer.min.js"></script>
+    <script src="~/Content/layer/extend/layer.ext.js"></script>
+    <title>登陆</title>
+    <script type="text/javascript">
+        var digitArray = new Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
+        var DevicePath, ret, n, mylen, UserName, Password, KeyID;
+        $(function () {
+             check();
+            //console.log(UserName, Password, KeyID);
+            // window.location.href = "/admin/loginin?UserName=" + UserName + "&&Password=" + Password;
+           // layer.alert('白菜级别前端攻城师贤心', 8); //风格一
+           //【输入/文件层】
+            //普通文本
+            //密码文本
+            layer.prompt({ title: '输入口令，并确认', type: 1 }, function (pass) {
+                // alert(pass);
+                $.ajax({
+                    url: "/admin/loginin",
+                    type: "post",
+                    data: { UserName: UserName, Password: pass },
+                    success:function(data) {
+                        if (data == "/admin/index") {
+                            location.href = data;
+                        } else {
+                            location.href = data;
+                        }
+                    }
+                });
+            });
+
+        });
+        function check() {
+            
+            try {
+                //建立操作我们的锁的控件对象，用于操作我们的锁
+                var s_simnew1;
+                //创建插件或控件
+                if (navigator.userAgent.indexOf("MSIE") > 0 && !navigator.userAgent.indexOf("opera") > -1) {
+                    s_simnew1 = new ActiveXObject("Syunew6A.s_simnew6");
+                }
+                else {
+                    s_simnew1 = document.getElementById('s_simnew61');
+                }
+
+                //查找是否存在锁,这里使用了FindPort函数
+                DevicePath = s_simnew1.FindPort(0);
+                if (s_simnew1.LastError != 0) {
+                    window.alert("打开错误！请重新插入U盾登陆");
+                    window.location.href = "/admin/error";
+                   // window.location.href = "/home/index";
+                    return;
+                }
+
+                //'读取锁的ID
+                KeyID = toHex(s_simnew1.GetID_1(DevicePath)) + toHex(s_simnew1.GetID_2(DevicePath));
+                if (s_simnew1.LastError != 0) {
+                    window.alert("打开错误！请重新插入U盾登陆");
+                    window.location.href = "/admin/error";
+                    //window.location.href = "/home/index";
+                    return;
+                }
+
+                //获取设置在锁中的用户名
+                //先从地址0读取字符串的长度,使用默认的读密码"FFFFFFFF","FFFFFFFF"
+                ret = s_simnew1.YRead(0, 1, "ffffffff", "ffffffff", DevicePath);
+                mylen = s_simnew1.GetBuf(0);
+                //再从地址1读取相应的长度的字符串，,使用默认的读密码"FFFFFFFF","FFFFFFFF"
+                UserName = s_simnew1.YReadString(1, mylen, "ffffffff", "ffffffff", DevicePath);
+                if (s_simnew1.LastError != 0) {
+                    window.alert("打开错误！请重新插入U盾登陆");
+                    window.location.href = "/admin/error";
+                   // window.location.href = "/home/index";
+                    return;
+                }
+
+                //获到设置在锁中的用户密码,
+                //先从地址20读取字符串的长度,使用默认的读密码"FFFFFFFF","FFFFFFFF"
+                //ret = s_simnew1.YRead(20, 1, "ffffffff", "ffffffff", DevicePath);
+                //mylen = s_simnew1.GetBuf(0);
+                ////再从地址21读取相应的长度的字符串，,使用默认的读密码"FFFFFFFF","FFFFFFFF"
+                //Password = s_simnew1.YReadString(21, mylen, "ffffffff", "ffffffff", DevicePath);
+                //if (s_simnew1.LastError != 0) {
+                //    window.alert("打开错误！请重新插入");
+                //    window.location.href = "/home/index";
+                //    return;
+                //}
+
+                ////这里返回对随机数的HASH结果
+                //frmlogin.return_EncData.value=s_simnew1.EncString(frmlogin.rnd.value,DevicePath);
+                //if( s_simnew1.LastError!= 0 )
+                //{
+                //    window.alert( "Err to StrEnc,ErrCode is:"+s_simnew1.LastError.toString());
+                //    return ;
+                //}
+                // frmlogin.submit();	
+
+            }
+            catch (e) {
+                // alert(e.name + ": " + e.message + "。可能是没有安装相应的控件或插件");
+                window.alert("打开错误！请重新插入");
+                 window.location.href = "/admin/error";
+            }
+        }
+        function toHex(n) {
+
+            var result = ''
+            var start = true;
+
+            for (var i = 32; i > 0;) {
+                i -= 4;
+                var digit = (n >> i) & 0xf;
+
+                if (!start || digit != 0) {
+                    start = false;
+                    result += digitArray[digit];
+                }
+            }
+
+            return (result == '' ? '0' : result);
+        }
+
+
+
+
+
+        function plugin0() {
+            return document.getElementById('plugin0');
+        }
+        plugin = plugin0;
+        function addEvent(obj, name, func) {
+            if (obj.attachEvent) {
+                obj.attachEvent("on" + name, func);
+            } else {
+                obj.addEventListener(name, func, false);
+                obj.addEventListener(name, func, true);
+            }
+        }
+        function load() {
+            addEvent(plugin(), 'KeyPnp', function (IsOut) {
+                if (IsOut == 0) {
+                    alert("U盾拨出.");
+                    location.href = "/admin/LoginOut";
+                }
+                //else {
+                //    alert("加密锁插入.");
+                //}
+            });
+        }
+    </script>
+</head>
+<body onload="load()">
+    <object id="plugin0" type="application/npsyunew6-plugin" width="1" height="1">
+    </object>
+   <embed id="s_simnew61"  type="application/npsyunew6-plugin" hidden="true"> </embed><!--创建firefox,chrome等插件-->
+    <!-- 模态框（Modal） -->
+   
+</body>
+</html>

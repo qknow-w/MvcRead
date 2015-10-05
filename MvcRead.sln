@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcRead", "MvcRead\MvcRead.csproj", "{96D99BCF-527D-48EF-A072-11AD2334CB61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SS.Utilities", "SS.Utilities\SS.Utilities.csproj", "{27FB797A-32D2-4ED8-BC99-20D06800C62B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Test|Any CPU = Test|Any CPU
+		Test|x64 = Test|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96D99BCF-527D-48EF-A072-11AD2334CB61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D99BCF-527D-48EF-A072-11AD2334CB61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D99BCF-527D-48EF-A072-11AD2334CB61}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{96D99BCF-527D-48EF-A072-11AD2334CB61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D99BCF-527D-48EF-A072-11AD2334CB61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D99BCF-527D-48EF-A072-11AD2334CB61}.Release|x64.ActiveCfg = Release|Any CPU
+		{96D99BCF-527D-48EF-A072-11AD2334CB61}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{96D99BCF-527D-48EF-A072-11AD2334CB61}.Test|Any CPU.Build.0 = Release|Any CPU
+		{96D99BCF-527D-48EF-A072-11AD2334CB61}.Test|x64.ActiveCfg = Release|Any CPU
+		{27FB797A-32D2-4ED8-BC99-20D06800C62B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27FB797A-32D2-4ED8-BC99-20D06800C62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27FB797A-32D2-4ED8-BC99-20D06800C62B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{27FB797A-32D2-4ED8-BC99-20D06800C62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27FB797A-32D2-4ED8-BC99-20D06800C62B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27FB797A-32D2-4ED8-BC99-20D06800C62B}.Release|x64.ActiveCfg = Release|Any CPU
+		{27FB797A-32D2-4ED8-BC99-20D06800C62B}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{27FB797A-32D2-4ED8-BC99-20D06800C62B}.Test|Any CPU.Build.0 = Release|Any CPU
+		{27FB797A-32D2-4ED8-BC99-20D06800C62B}.Test|x64.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

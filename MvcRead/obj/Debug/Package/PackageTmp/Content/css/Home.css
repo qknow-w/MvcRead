@@ -1,0 +1,21 @@
+﻿    body {
+            width: 90%;
+            margin: 0 auto;
+            background: url(../Images/bg_01.png) repeat-x;
+        }
+        .header {
+             height: 160px;
+             margin: 70px auto 0 auto;
+             background: url(../Images/bg_pic.png) no-repeat center;
+             overflow: hidden;
+        }
+        .header img {
+            margin-left: 60px;
+        }
+        footer {
+             height: 100px;
+             background: url(../Images/1232.gif) repeat-x;
+        }
+        form .col-md-4{
+            background: url(../Images/321.gif) repeat-x;
+        }

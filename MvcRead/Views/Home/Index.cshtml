@@ -1,0 +1,163 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap-3.2.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    @*  <link href="~/Content/css/Home.css" rel="stylesheet" />*@
+    @* <script src="~/Content/bootstrap-3.2.0/dist/js/bootstrap.min.js"></script>    *@
+    <script src="~/Content/pdfobject.js"></script>
+    <script src="~/Content/Knockoutv3.2.0.js"></script>
+    <script src="~/Content/jquery.js"></script>
+    <script src="~/Content/js/viewModel/HomeIndex.js"></script>
+    <style type="text/css">
+    *
+    {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .head
+    {
+        width: 1235px;
+        height: 270px;
+        margin: 0 auto;
+        
+        /*border-radius: 10px;*/
+        padding-top:35px;
+    }
+    .logo img {
+    display:block;
+    width:517px;
+    height:130px;
+    }
+    .center
+    {
+        height: 450px;
+        width: 1235px;
+        margin: 0 auto;
+       
+    }
+
+    .buttom
+    {
+        height: 100px;
+        width: 100%;
+        position: relative;
+        background:url('/content/images/bottom.png') repeat-x;
+        /*border-radius: 10px;*/
+    }
+
+    .logo {
+        height: 130px;
+        width: 1235px;
+        margin: 0 auto;
+
+    }
+
+    /*form
+    {
+        background: #87ceeb;
+        border-radius: 5px;
+    }*/
+    /*form button {
+            background: red
+        }*/
+</style>
+</head>
+
+<body style="background:url('/content/images/logo333.png') no-repeat;background-size:100% 70%" >
+    
+    <div class="head" style="width:100%">
+    
+	<div class="logo"></div>	
+    </div>
+    <div style="margin:0 auto;">
+    <div class="center" style="width: 100%">
+        
+        <div class="container" >
+            <form role="form" data-bind="submit: submitdata">
+                <div style="background:transparent;width:100%;height:47px;margin-top:-40px;">
+                <div style="position: relative;float:left;margin-top:8px;">
+                    <p style="width:120px;height:30px;text-align:center;line-height:30px;font-size:15px;float:left;letter-spacing:10px;"><b>编号：</b></p>
+                     <input type="text" required="" id="numberr" style="width: 200px;height: 30px;margin-left: 0px;" />                  
+                </div>
+            <div style="float: left;margin-top:8px;">
+                <p style="width:120px;height:30px;text-align:center;line-height:30px;font-size:15px;float:left;"><b>审核码：</b></p>
+                 <input type="text" required="" id="genree" style="width: 200px;height: 30px;margin-left: 0px;" />
+            </div>
+            <div style="float: left;height: 41px;width:101px;margin-top:5px;">
+                <div style="position: absolute">
+                    <button type="submit" class="btn btn-danger" style="height: 34px;width: 101px;border: 0px;margin-left:5px;letter-spacing:10px;text-align:center;font-family:'微软雅黑'" ><b>提交</b></button>
+                    @* <img src="~/Content/Images/04_03.gif" />*@
+                </div>
+            </div>
+                <div style="float: left;height: 41px;width:394px;padding-top: 7px;padding-left: 5px;margin-top:6px;">
+                     <span style="margin-left: 20px; font-size: 15px; line-height: 15px;margin-right: 15px;">今天是 @DateTime.Now.ToString()</span>
+                </div>
+                    </div>
+            @* <form class="form-horizontal" role="form" data-bind="submit: submitdata">
+                <div style="height: 60px; border-radius: 20px">
+                    <div class="col-md-12">&nbsp; </div>
+                    <div class="col-md-3">
+                        <span>编号：</span><input type="text" required="" id="numberr" style="border-radius: 5px" />
+                    </div>
+                    <div class="col-md-3">
+                        <span>审核码：</span><input type="text" required="" id="genree" style="border-radius: 5px" />
+
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-danger" style="height: 26px">提交</button>
+                        <span style="margin-left: 20px; font-size: 15px; line-height: 15px">今天是 @DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")</span>
+                    </div>
+                </div>*@
+            </form>
+
+            <table class="table table-bordered table-hover table-striped table-condensed">
+                <caption>
+                    <h3></h3>
+                </caption>
+                <thead>
+                    <tr class="success">
+                        <th>文件编号</th>
+                        <th>文件名称</th>
+                        <th>文件大小</th>
+                        <th>录入时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="template: { name: 'reservationTemplate', foreach: JsonData }">
+                </tbody>
+            </table>
+            <script type="text/html" id="reservationTemplate">
+                <tr>
+                    <td class="center hidden"><span data-bind="text: DataURL"></span></td>
+                    <td class="center"><span data-bind="text: DataSeq"></span></td>
+                    <td class="center"><span data-bind="text: DataName"></span></td>
+                    <td class="center"><span data-bind="text: DataSize"></span></td>
+                    <td class="center"><span data-bind="text: CreateDate"></span></td>
+                    <td class="center"><a data-bind="click: function (data) { $root.Check(data, DataSeq) }" class="btn btn-warning" href="#" data-toggle="modal" data-target="#EditModal">
+                                           <i class="glyphicon glyphicon-folder-open"></i>
+                                           查看
+                                       </a>
+
+
+                    </td>
+                </tr>
+
+            </script>
+        </div>
+    </div>
+        </div>
+    <div class="buttom" >
+
+        <div style="position: absolute; top: 60px; left: 44%"><span  style="font-family: 微软雅黑;">技术支持：咸宁在线网络有限公司</span></div>       
+    </div>
+        
+</body>
+</html>
